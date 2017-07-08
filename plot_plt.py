@@ -10,8 +10,8 @@ def main():
     C,S = np.cos(X), np.sin(X)
 
     #plot style
-    #plt.style.use('ggplot')
-    plt.style.use('seaborn-darkgrid')
+    plt.style.use('ggplot')
+    #plt.style.use('seaborn-darkgrid')
     #plt.style.use('seaborn-notebook')
     #plt.style.use('classic')
     #plt.style.use('seaborn-ticks')
@@ -68,6 +68,7 @@ def main():
 
     fig, axes = plt.subplots(2, 2, figsize=(15, 12), dpi=120)
 
+    plt.xkcd()
     axes[0, 0].plot(X, C, 'b-', color=color_list[0], linewidth=5, label='C')
     axes[0, 0].plot(X, S, 'g-', color=color_list[1], linewidth=5, label='S')
     axes[0, 0].set_title("first subplot")
@@ -77,6 +78,10 @@ def main():
     axes[0, 0].set_yticks([-3, -2, -1, 0, 1, 2, 3])
     axes[0, 0].set_xticklabels(['a', 'b', 'c', 'd', 'e', 'f', 'g'], rotation=45, fontsize=20)
     axes[0, 0].set_yticklabels(['-3', '-2', '-1', '0', '1', '2', '3'], rotation=45, fontsize=20)
+    axes[0, 0].text(0, 0.25, 'a=60')
+    axes[0, 0].axvspan(X.min()*1.1, X.max()*1.1, facecolor=color_list[7], alpha=0.1)
+    # set different color
+    axes[0, 0].set_facecolor('r')
     axes[0, 0].legend(loc='upper right', fontsize=30)
     # modify labels list
     #labels = [item.get_text() for item in ax.get_xticklabels()]
@@ -111,8 +116,8 @@ def main():
 
     fig, axes = plt.subplots(nrows = 1, ncols=2, figsize=(15, 12), dpi=120)
     bins = [100, 150, 180, 195, 205, 220, 250, 300]
-    axes[0].hist(x, 20, color=color_list[4], label='x')
-    axes[0].hist(x+100, 20, color=color_list[5], label='x+100')
+    axes[0].hist(x, 20, color=color_list[8], label='x')
+    axes[0].hist(x+100, 20, color=color_list[3], label='x+100')
     axes[0].legend(fontsize=30)
 
     axes[1].hist(x, bins, color=color_list[6], label='x')
